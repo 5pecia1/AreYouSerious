@@ -21,6 +21,15 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
 
     if (changeInfo.status === 'complete') {
         chrome.storage.sync.get(function (data) {
+            var whiteList = data.whiteList;
+            if (!!whiteList && whiteList.length > 0) {
+                for (var i = 0; i < whiteList.length; i++) {
+                    if (!!tab.url.match(new RegExp(whiteList[i]))) {
+                        return;
+                    }
+                }
+            }
+
             if (!!data && !!data.startTime && !!data.endTime) {
                 var startTimeString = data.startTime.split(':');
                 var endTimeString = data.endTime.split(':');
@@ -54,6 +63,7 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
             }
         });
     }
+
     function getTime(hour, minute) {
         var day = (parseInt(hour) === 0 && parseInt(minute) === 0)? 2 : 1;
         return new Date(1970, 1, day, hour, minute);
