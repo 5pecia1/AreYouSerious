@@ -1,5 +1,5 @@
 /* The Modal (background) */
-.modal {
+.are-you-serious-modal {
     position: fixed; /* Stay in place */
     z-index: 20000; /* Sit on top */
     padding-top: 100px; /* Location of the box */
@@ -13,7 +13,7 @@
 }
 
 /* Modal Content */
-.modal-content {
+.are-you-serious-modal-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -23,45 +23,45 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
+    animation-name: are-you-serious-animatetop;
     animation-duration: 0.4s
 }
 
 /* Add Animation */
-@-webkit-keyframes animatetop {
+@-webkit-keyframes are-you-serious-animatetop {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
 
-@keyframes animatetop {
+@keyframes are-you-serious-animatetop {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
 
 /* The Close Button */
-.close {
+.are-you-serious-close {
     color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.are-you-serious-close:hover,
+.are-you-serious-close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
-.modal-header {
+.are-you-serious-modal-header {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.are-you-serious-modal-body {padding: 2px 16px;}
 
-.modal-footer {
+.are-you-serious-modal-footer {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
