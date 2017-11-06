@@ -18,13 +18,13 @@ var TabsInformation = (function () {
 
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
     var tabsInformation= TabsInformation.getInstance();
-
     if (changeInfo.status === 'complete') {
         chrome.storage.sync.get(function (data) {
             var whiteList = data.whiteList;
+            var url = getUrl(tab.url);
             if (!!whiteList && whiteList.length > 0) {
                 for (var i = 0; i < whiteList.length; i++) {
-                    if (!!tab.url.match(new RegExp(whiteList[i]))) {
+                    if (!!(url.match(new RegExp(whiteList[i])))) {
                         return;
                     }
                 }
@@ -42,13 +42,13 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
 
                 if (currentTime.getTime() >= startTime.getTime()
                     && currentTime.getTime() <= endTime.getTime()){
-                    if (tabsInformation[tabId] === tab.url) {
+                    if (tabsInformation[tabId] === url) {
                         delete(tabsInformation[tabId]);
                         chrome.tabs.executeScript(tabId, {file: "not-overlay.js"});
                         chrome.tabs.executeScript(tabId, {
                             code:
                             'window.areYouSerious = {tabId: ' + tabId + ',' +
-                            'tabUrl: "' + tab.url + '"}'
+                            'tabUrl: "' + url + '"}'
                         });
                     } else {
                         chrome.tabs.insertCSS(tabId, {file: "overlay.css"});
@@ -56,7 +56,7 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
                         chrome.tabs.executeScript(tabId, {
                             code:
                             'window.areYouSerious = {tabId: ' + tabId + ',' +
-                            'tabUrl: "' + tab.url + '"}'
+                            'tabUrl: "' + url + '"}'
                         });
                     }
                 }
@@ -84,5 +84,9 @@ chrome.extension.onMessage.addListener(function (request, sender) {
         tabsInformation[request.tabId] = request.url;
     }
 });
+
+function getUrl(url) {
+    return url.split("#")[0];
+}
 
 console.log("background start");

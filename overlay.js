@@ -34,4 +34,8 @@ function init() {
     }
 }
 
-init();
+(function () {
+    if (!document.querySelector("#are-you-serious-myModal")) {
+        init();
+    }
+})();
