@@ -27,6 +27,12 @@
     animation-duration: 0.4s
 }
 
+@media screen and (min-width: 480px) {
+    .are-you-serious-modal-content {
+        width: 480px;
+    }
+}
+
 /* Add Animation */
 @-webkit-keyframes are-you-serious-animatetop {
     from {top:-300px; opacity:0}
