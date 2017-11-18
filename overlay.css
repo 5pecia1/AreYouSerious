@@ -26,6 +26,9 @@
     animation-name: are-you-serious-animatetop;
     animation-duration: 0.4s
 }
+#are-you-serious-copy-text{
+   width: 100%;
+}
 
 @media screen and (min-width: 480px) {
     .are-you-serious-modal-content {
@@ -42,21 +45,6 @@
 @keyframes are-you-serious-animatetop {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.are-you-serious-close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.are-you-serious-close:hover,
-.are-you-serious-close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .are-you-serious-modal-header {
