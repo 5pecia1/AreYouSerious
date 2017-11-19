@@ -3,7 +3,7 @@ function init() {
     console.log('overlay init');
     // language=HTML
     var _overwriteCode
-        = '<div id="are-you-serious-myModal" class="are-you-serious-modal">\n' +
+        = '<div id="are-you-serious-myModal" class="are-you-serious-modal" ondragstart="return false" ondrop="return false" oncopy="return false" oncut="return false" onpaste="return false">\n' +
         '\n' +
         '  <div class="are-you-serious-modal-content">\n' +
         '    <div class="are-you-serious-modal-header">\n' +
