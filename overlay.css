@@ -27,7 +27,9 @@
     animation-duration: 0.4s
 }
 #are-you-serious-copy-text{
-   width: 100%;
+    width: 100%;
+    background-color: wheat;
+    color:black;
 }
 
 @media screen and (min-width: 480px) {
